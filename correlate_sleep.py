@@ -17,7 +17,7 @@ def pearson(x, y):
 conn = psycopg2.connect(dbname=os.environ.get("PGDATABASE", "postgres"))
 cur = conn.cursor()
 
-query_sleep = """
+query_sleep = f"""
 WITH mood AS (
     SELECT date_trunc('day', log_time) as log_date, AVG(COALESCE(sentiment_score_dw, sentiment_score_llm)) as mood_score
     FROM "{SCHEMA}".mood_log

@@ -57,7 +57,7 @@ for m in metrics:
 
 # 2. Fatigue Indicators (last 7-10 days of the period)
 fatigue_start = (datetime.strptime(period_end, "%Y-%m-%d") - timedelta(days=10)).strftime("%Y-%m-%d")
-query_fatigue = """
+query_fatigue = f"""
 SELECT 
     DATE(start_date AT TIME ZONE 'America/Vancouver') as date,
     type,

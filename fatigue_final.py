@@ -23,7 +23,7 @@ for row in cur.fetchall():
     print(f"{row[0]}: {row[1]}")
 
 print("\n=== FATIGUE INDICATORS (period) ===")
-q_trends = """
+q_trends = f"""
 SELECT 
     date,
     MAX(CASE WHEN type = 'HKQuantityTypeIdentifierRestingHeartRate' THEN val END) as rhr,
